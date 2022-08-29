@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Show all reg User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Address</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+            </tbody>
+        </table>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/shovan04/startrjs@latest/startr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    Ajax({
+        url: "server.php",
+        method: "POST",
+        data: {
+            load_data: true,
+        },
+        success: response => {
+            setHtml('data', response)
+        },
+        error: response => {
+            console.log(response)
+        }
+    })
+</script>
+
+</html>

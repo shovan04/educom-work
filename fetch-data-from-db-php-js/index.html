@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
+                        width="150px"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjf9f4AWawRj9UcFq1sTTfxuzDezEGBGx7Kw&usqp=CAU"
+                        alt="userphoto">
+                    <span class="font-weight-bold">User Name</span>
+                    <span class="text-black-50">user@email.com</span>
+                </div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">User Deatils</h4>
+                    </div>
+                    <form action="" method="POST">
+                        <div class="row mt-2">
+                            <div class="col-md-6"><label class="labels">First Name</label><input type="text"
+                                    class="form-control" id="fname" placeholder="First name" required></div>
+                            <div class="col-md-6"><label class="labels">Last Name</label><input type="text"
+                                    class="form-control" id="lname" placeholder="Last Name" required></div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
+                                    class="form-control" id="mobile" placeholder="enter phone number"></div>
+                            <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
+                                    class="form-control" id="email" placeholder="enter email id" required></div>
+                            <div class="col-md-12"><label class="labels">Class</label><select class="form-select"
+                                    name="class" id="class" aria-label="Default select example">
+                                    <option value="0" selected>Select Class</option>
+                                    <option value="9">Class - 9</option>
+                                    <option value="10">Class - 10</option>
+                                    <option value="11">Class - 11</option>
+                                    <option value="12">Class - 12</option>
+                                </select></div>
+                            <div class="col-md-12"><label class="labels">Address</label><input type="text"
+                                    class="form-control" id="add" placeholder="enter address" required></div>
+                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" id="sub"
+                                    type="button">Submit</button></div>
+                    </form>
+                </div>
+                <!-- error -->
+                <div id="er" class="mt-2"></div>
+                <!-- end error -->
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/shovan04/startrjs@latest/startr.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Start Custom JS -->
+<script>
+    btnclk('sub', () => {
+        let _fname = getVal("fname");
+        let _lname = getVal('lname');
+        let _mobile = getVal('mobile');
+        let _email = getVal('email');
+        let _class = getVal('class');
+        let _add = getVal('add');
+        if (_fname == "" || _lname == "" || _mobile == "" || _email == "" || _class == 0 || _add == "") {
+            setHtml('er', '<p class="alert alert-danger col-8" role="alert">Pleace Fill All the Fields</p>')
+        } 
+        else {
+            Ajax({
+                url: "server.php",
+                method: "POST",
+                data: {
+                    sub_dis: true,
+                    fname: _fname,
+                    lname: _lname,
+                    mobile: _mobile,
+                    email: _email,
+                    class: _class,
+                    add: _add
+                },
+                success: respons => {
+                    setHtml('er', '<p class="alert alert-success col-8" role="alert">Submited.</p>')
+                },
+                error: respons => {
+                    setHtml('er', '<p class="alert alert-danger col-8" role="alert">Failed.</p>')
+                }
+            })
+        }
+    })
+
+</script>
+<!-- end  JS-->
+
+</html>
