@@ -1,4 +1,9 @@
-<?php $conn = mysqli_connect("localhost", "root", "", "test");
+<?php
+require 'vendor/autoload.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+$conn = mysqli_connect("localhost","root","","test");
 if (!$conn) {
     die();
     echo "Failed to connect Server. Plase try again letter";
