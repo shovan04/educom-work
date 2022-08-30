@@ -1,8 +1,4 @@
 <?php
-require 'vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
 $conn = mysqli_connect("localhost","root","","test");
 if (!$conn) {
     die();
