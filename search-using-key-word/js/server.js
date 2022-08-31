@@ -1,5 +1,5 @@
 Ajax({
-  url: "server.php",
+  url: "./php/server.php",
   method: "POST",
   data: { first: !0 },
   success(a) {
@@ -15,7 +15,7 @@ Ajax({
       ? (setHtml("tbl", ""), setTxt("err", "Please enter Product Name"))
       : (setHtml("err", ""),
         Ajax({
-          url: "server.php",
+          url: "./php/server.php",
           method: "POST",
           data: { st: !0, search: a },
           success(a) {
