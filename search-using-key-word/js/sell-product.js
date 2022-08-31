@@ -1,4 +1,3 @@
-let stock = 1;
 Ajax({
     url: "./php/sell-product.php",
     method: "POST",
@@ -13,18 +12,8 @@ Ajax({
     },
 });
 
-btnclk('add', () => {
-    stock = stock + 1;
-    select('stock').value = stock
-    console.log(stock);
-})
-btnclk('neg', () => {
-    stock = stock - 1;
-    select('stock').value = stock
-    console.log(stock);
-})
-
 btnclk('sub-sell', () => {
+let stock = getVal('stock');
     if (stock <= 0) {
         setTxt('msg', 'Stock can never be zero or negative')
     }else if(getVal('item') == 0){
