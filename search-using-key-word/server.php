@@ -1,8 +1,14 @@
 <?php
-$conn = mysqli_connect("localhost","root","","test");
-if (!$conn) {
+include './vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+try {
+    $conn = mysqli_connect($_ENV['HOST'], $_ENV['USER'], $_ENV['PASS'], $_ENV['DB']);
+} catch (Exception $e) {
     die();
-    echo "Failed to connect Server. Plase try again letter";
+    echo 'Error :- ' . $e->getMessage();
 }
 function clear($data)
 {
