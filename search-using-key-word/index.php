@@ -12,6 +12,9 @@ if($url == "" || $url == "home"){
 } elseif($url == "add-item" || preg_match('/add-item\/[0-9]/i',$url)){
     include './src/addItem.html';
 }
- elseif($url == "sell-product" || preg_match('/sell-product\/[0-9]/i',$url)){
+elseif($url == "sell-product" || preg_match('/sell-product\/[0-9]/i',$url)){
     include './src/sellProduct.html';
+}
+else{
+    include './src/index.html';
 }
