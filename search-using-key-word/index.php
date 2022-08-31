@@ -1,5 +1,5 @@
 <?php
-
+include './src/nav.html';
 $url = $_SERVER['REQUEST_URI'];
 $url = str_replace('/educom-work/search-using-key-word/','',$url);
 $arr = explode('/',$url);
@@ -11,4 +11,7 @@ if($url == "" || $url == "home"){
     include './src/index.html';
 } elseif($url == "add-item" || preg_match('/add-item\/[0-9]/i',$url)){
     include './src/addItem.html';
+}
+ elseif($url == "sell-product" || preg_match('/sell-product\/[0-9]/i',$url)){
+    include './src/sellProduct.html';
 }
