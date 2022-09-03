@@ -15,7 +15,7 @@ if($url == "" || $url == "home"){
 elseif($url == "sell-product" || preg_match('/sell-product\/[0-9]/i',$url)){
     include './src/sellProduct.html';
 }
-elseif($url == "update-product" || preg_match('/sell-product\/[0-9]/i',$url)){
+elseif($url == "update-product" || preg_match('/update-product\/[0-9]/i',$url)){
     include './src/updateProduct.html';
 }
 else{
