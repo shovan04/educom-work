@@ -18,3 +18,15 @@ if (isset($_POST['st'])) {
         echo $output;
     }
 }
+elseif(isset($_POST['up_data'])){
+    $id = clear($_POST['id']);
+    $key = clear($_POST['key']);
+    $data = clear($_POST['data']);
+    $res = mysqli_query($conn, "UPDATE `search-using-key-word` SET `$key`='$data' WHERE `id` = $id");
+    if($res){
+        echo 'Success';
+    } else{
+        echo 'Failed';
+    }
+    
+}
