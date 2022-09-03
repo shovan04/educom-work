@@ -8,7 +8,7 @@ Ajax({
   error(a) {
     console.log(a);
   },
-}),
+})
   btnclk("search", () => {
     let a = getVal("searchKey");
     "" == a
