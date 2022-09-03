@@ -35,11 +35,11 @@ upStoc = () => {
 btnclk("item", () => {
   item = getVal("item");
   if (item == 0) {
-    select('up_p_s').setAttribute('disabled','disabled');
+    select("up_p_s").setAttribute("disabled", "disabled");
     setTxt("msg", "Pleace select an Product");
   } else {
-    select('up_p_s').setAttribute('disabled','disabled');
-    setTxt("msg", '');
+    select("up_p_s").removeAttribute("disabled");
+    setTxt("msg", "");
   }
   console.log(item);
 });
@@ -62,12 +62,11 @@ btnclk("up_p_s", () => {
         send_data(item, "stock", price);
       }
     }
-  }
-  else if(upPric_ != true || upStoc_ != true || item == 0){
+  } else if (upPric_ != true || upStoc_ != true || item == 0) {
     setTxt("msg", "Pleace select an update value");
     console.log(false);
   }
-  console.log('clicked')
+  console.log("clicked");
 });
 
 send_data = (item_, key_, data_) => {
@@ -82,7 +81,7 @@ send_data = (item_, key_, data_) => {
       data: data_,
     },
     success: (respons) => {
-        setHtml("msg", respons);
+      setHtml("msg", respons);
       console.log(respons);
     },
     error: (respons) => {
